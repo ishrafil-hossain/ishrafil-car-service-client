@@ -1,13 +1,16 @@
 import React from 'react';
-import logo from '../../../assets/logo.svg'
+import { NavLink } from 'react-router-dom';
+import logo from '../../../assets/logo.svg';
+import './Header.css';
 
 const items = <>
-    <div className='lg:flex text-xl'>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Blog</li>
-        <li>Contact</li>
+    <div className='header flex'>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/services">Services</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/login">Login</NavLink>
     </div>
 </>
 
@@ -19,14 +22,14 @@ const Header = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box">
                         {items}
                     </ul>
                 </div>
                 <img src={logo} alt='' />
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+            <div className="hidden lg:flex">
+                <ul >
                     {items}
                 </ul>
             </div>
