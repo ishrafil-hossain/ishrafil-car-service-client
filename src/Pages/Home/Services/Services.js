@@ -5,7 +5,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('services.json')
+        fetch('https://ishrafil-car-service-server.vercel.app/service')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -26,7 +26,10 @@ const Services = () => {
                 }
             </div>
 
-            <button className="btn btn-outline btn-error my-12 w-60 text-[18px] font-bold">More Services</button>
+            <div className='w-60 mx-auto'>
+                <button className="btn btn-outline btn-error my-12 text-[18px] font-bold">More Services</button>
+            </div>
+
         </div>
     );
 };

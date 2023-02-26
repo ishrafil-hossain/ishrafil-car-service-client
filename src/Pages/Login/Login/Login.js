@@ -3,11 +3,15 @@ import img from '../../../assets/images/login/login.svg';
 import { FaFacebook } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
+// import Marquee from "react-fast-marquee";
 
 const Login = () => {
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -19,7 +23,7 @@ const Login = () => {
                 const user = result.user;
                 // console.log(user);
                 if (user) {
-                    alert('Login successfull')
+                    navigate(from, { replace: true })
                     form.reset();
                 }
             })
@@ -66,6 +70,9 @@ const Login = () => {
                         </div>
                         <p>Don't have an account ? <Link to="/sign-up" className='text-[#FF3811] font-bold'>Sign Up</Link></p>
                     </form>
+                    {/* <Marquee play speed={30} delay={0} loop={0} className="text-blue-600" pauseOnHover direction='right'>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, laudantium facilis placeat sed rem illum recusandae optio, est debitis et totam repellendus animi voluptatem quod, sit a quasi! Et, magnam?
+                    </Marquee> */}
                 </div>
             </div>
         </div>
